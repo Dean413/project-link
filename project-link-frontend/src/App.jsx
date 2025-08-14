@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/authContext';
 import ProtectedRoute from './components/protectedRoute';
 
+import "./App.css"
 import Register from './pages/signUp';
 import Clients from './pages/admin/client';
 import Projects from './pages/admin/projects';
@@ -16,9 +17,10 @@ import Footer from './components/footer';
 
 function App() {
   return (
-<div id='root'>
+<div className='d-flex flex-column min-vh-100'>
         <NavbarComponent />
-        <Routes>
+        <main className='flex-fill'>
+          <Routes>
           <Route path="/" element={<Register />} />
           <Route path="/signin" element={<SignIn />} />
 
@@ -58,7 +60,8 @@ function App() {
             <Clients />
           </ProtectedRoute>} />
         </Routes>
-
+        </main>
+    
         <Footer />
    </div>
   );
