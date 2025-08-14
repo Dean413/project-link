@@ -33,6 +33,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/clients", clientRoutes);
 app.use("/api/projects", projectRoutes);
 
+app.use((req, res) => {
+  res.status(404).json({ error: "Not Found" });
+});
+
 app.use(errorHandler);
 
 module.exports = app;
