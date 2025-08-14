@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "https://project-link-itrn.onrender.com"
+    baseURL: "https://project-link-itrn.onrender.com/api"
 
 })
 
