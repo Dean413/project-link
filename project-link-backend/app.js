@@ -11,7 +11,7 @@ const cors = require("cors")
 
 const allowedOrigins = [
   "http://localhost:5173", // local dev
-  "/^https:\/\/project-link-one.*\.vercel\.app$/" // production frontend
+  "https://project-link-one.vercel.app/" // production frontend
 ];
 
 app.use(cors({
