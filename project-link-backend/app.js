@@ -9,8 +9,23 @@ const projectRoutes = require("./routes/projectRoute");
 const errorHandler = require("./middleware/errorHandler"); 
 const cors = require("cors")
 
+const allowedOrigins = [
+  "http://localhost:5173", // local dev
+  "https://your-vercel-site.vercel.app" // production frontend
+];
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
 
 app.use(express.json());
 
